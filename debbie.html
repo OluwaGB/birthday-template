@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        strong {
+            background: linear-gradient(to right, purple, pink);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #birthday-card{
+            display:flex;
+            margin:auto;
+            flex-direction:row;
+            justify-content:center;
+            align-items:center;
+            gap:20px;
+        }
+        button{background:linear-gradient(to right, purple, pink);
+        color:white;
+    padding:1rem;
+ border:none;border-radius:3px; min-width:7vw;
+}
+        #card2{
+           min-width:30vw;
+        }
+        #card1{
+         justify-content:center;
+         align-items:center;
+         text-align:center;
+            min-width:20vw;
+            border-radius:3px;
+            background-color:rgb(58, 2, 58);
+            color:white;
+           
+            min-height:30vh;
+        }
+        #card3{display:none;}
+        
+        #card3 strong {
+            background: radial-gradient(circle,  purple, pink);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #card3 img{max-width:30vw;
+        border:none;
+    border-radius:8px;}
+        strong{margin-left:1.5vw;}
+        /*card3 animation*/
+         @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    #card3 strong {
+        animation: fadeInLeft 2s ease-in-out;
+    }
+        /*media queries*/
+         @media (max-width: 768px) {
+            #birthday-card {
+                flex-direction: column;
+                gap: 10px;
+            }
+            #card1, #card2 {
+                min-width: 80vw;
+            }
+            #card3 img {
+                max-width: 20vw;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            button {
+                padding: 0.5rem;
+                min-width: 5rem;
+            }
+            #card1, #card2 {justify-content:center;
+                text-align:center;
+                align:center;
+                padding:0.5rem;
+                min-width: 90vw;
+            }
+            #card3 img {
+                max-width: 50vw;
+            }
+        }
+        @media (max-width: 468px) {
+        button {
+            padding: 0.25rem;
+            min-width: 4rem;
+        }
+        #card1, #card2 {
+            min-width: 100vw;
+        }
+        #card3 img {
+            max-width: 100vw;
+        }
+        #card3{min-width:90vw;
+        text-align:center;}
+    }
+    </style>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            var currentDate = new Date();
+            var formattedDate = currentDate.toDateString();
+            document.getElementById("card1").innerText = formattedDate;
+            btn= document.getElementById("btn");
+        btn.addEventListener('click', function show(){
+            card3= document.getElementById('card3');
+            card1 = document.getElementById('card1');
+            if (card3.style.display === 'none') {
+                    card3.style.display = 'block';
+                    card1.style.display = 'none';
+                } else {
+                    card3.style.display = 'none';
+                    card1.style.display = 'flex';
+                }
+        })
+        });
+    </script>
+</head>
+<body>
+    <div id="birthday-card">
+        <div id="card1"></div>
+        <div id="card3">
+            <img src="debbie.png"/>
+            <span><h3>Name:<strong>Ayodele Deborah</strong></h3></span>
+            <span><h3>Department:<strong> Biochemistry</strong></h3></span>
+            <span><h3>Unit:<strong> Libary Unit</strong></h3></span>
+            <address>"More converting content to write<br>More code and funds  but less bug to fix<br> 
+                and more impactul days on earth". Happy birthday one in million</address>
+        </div>
+        <div id="card2">
+            <h3>Curious whose <strong>birthday</strong> it is today?</h3>
+            <button id="btn">Click here</button>
+        </div>
+    </div>
+</body>
+</html>
